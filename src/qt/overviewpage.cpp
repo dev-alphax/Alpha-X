@@ -11,9 +11,11 @@
 
 #include <QAbstractItemDelegate>
 #include <QPainter>
+#include <QDesktopServices>
+#include <QUrl>
 
-#define DECORATION_SIZE 64
-#define NUM_ITEMS 3
+#define DECORATION_SIZE 40
+#define NUM_ITEMS 10
 
 class TxViewDelegate : public QAbstractItemDelegate
 {
@@ -163,7 +165,7 @@ void OverviewPage::setModel(WalletModel *model)
         filter->sort(TransactionTableModel::Status, Qt::DescendingOrder);
 
         ui->listTransactions->setModel(filter);
-        ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
+        //ui->listTransactions->setModelColumn(TransactionTableModel::ToAddress);
 
         // Keep up to date with wallet
         setBalance(model->getBalance(), model->getStake(), model->getUnconfirmedBalance(), model->getImmatureBalance());
@@ -194,4 +196,10 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
 {
     ui->labelWalletStatus->setVisible(fShow);
     ui->labelTransactionsStatus->setVisible(fShow);
+}
+
+void OverviewPage::on_pushButton_clicked()
+{
+    QString link="http://18.191.154.72:3001/";
+    QDesktopServices::openUrl(QUrl(link));
 }

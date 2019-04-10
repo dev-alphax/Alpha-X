@@ -77,9 +77,9 @@ BitcoinGUI::BitcoinGUI(QWidget *parent):
     rpcConsole(0),
     nWeight(0)
 {
-    setFixedSize(1190, 645);
+    //setFixedSize(1190, 645);
     setWindowTitle(tr("Alphax") + " - " + tr("Wallet"));
-	qApp->setStyleSheet("QMainWindow { background-image:url(:images/bkg);border:none;font-family:'Open Sans,sans-serif'; }");
+    qApp->setStyleSheet("QMainWindow { border-image:url(:images/bkg)0 0 0 0 streh strecth;border:none;font-family:'Open Sans,sans-serif'; }");
 #ifndef Q_OS_MAC
     qApp->setWindowIcon(QIcon(":icons/bitcoin"));
     setWindowIcon(QIcon(":icons/bitcoin"));
@@ -336,17 +336,27 @@ void BitcoinGUI::createMenuBar()
 
 void BitcoinGUI::createToolBars()
 {
+
     QToolBar *toolbar = addToolBar(tr("Tabs toolbar"));
-    toolbar->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
+    toolbar->setOrientation(Qt::Vertical);
+    addToolBar(Qt::LeftToolBarArea, toolbar);
+    toolbar->setMovable( false );
+    toolbar->setAllowedAreas(Qt::LeftToolBarArea);
+
+    toolbar->setToolButtonStyle(Qt::ToolButtonIconOnly);
+
+
+    toolbar->setStyleSheet("background: #040C10");
+
+
     toolbar->addAction(overviewAction);
     toolbar->addAction(sendCoinsAction);
     toolbar->addAction(receiveCoinsAction);
     toolbar->addAction(historyAction);
     toolbar->addAction(addressBookAction);
+    toolbar->addAction(exportAction);
 
-    QToolBar *toolbar2 = addToolBar(tr("Actions toolbar"));
-    toolbar2->setToolButtonStyle(Qt::ToolButtonTextBesideIcon);
-    toolbar2->addAction(exportAction);
+    
 }
 
 void BitcoinGUI::setClientModel(ClientModel *clientModel)
