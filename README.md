@@ -13,3 +13,5 @@ To build qt wallet for Alpha-X, document is <a href="https://github.com/dev-alph
 
 
 Qt ui code updated..
+
+Node List Updated...
