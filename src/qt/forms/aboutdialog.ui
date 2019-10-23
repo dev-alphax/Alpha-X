@@ -14,7 +14,8 @@
    <string>About alphax</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">background-image: url(:/images/bkg2);</string>
+   <string notr="true">background-image: url(:/images/bkg2);
+color:rgb(0,0,0);</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <item>

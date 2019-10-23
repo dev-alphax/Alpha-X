@@ -200,6 +200,6 @@ void OverviewPage::showOutOfSyncWarning(bool fShow)
 
 void OverviewPage::on_pushButton_clicked()
 {
-    QString link="http://18.191.154.72:3001/";
+    QString link="https://explorer.alpha-x.io/";
     QDesktopServices::openUrl(QUrl(link));
 }
